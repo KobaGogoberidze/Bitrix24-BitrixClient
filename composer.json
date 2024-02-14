@@ -1,0 +1,60 @@
+{
+    "name": "monarch/bitrix-client",
+    "description": "PHP Api client, that allows interacting the Bitrix24 portal",
+    "keywords": [
+        "bitrix24",
+        "php",
+        "api",
+        "sdk"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Koba Gogoberidze",
+            "email": "kobagogoberidze21@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Monarch\\BitrixClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Monarch\\BitrixClient\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "php-http/discovery": "^1.19"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6",
+        "pestphp/pest": "^2.33",
+        "pestphp/pest-plugin-arch": "^2.7",
+        "pestphp/pest-plugin-type-coverage": "^2.8",
+        "phpstan/phpstan": "^1.10",
+        "rector/rector": "^1.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": false
+        }
+    },
+    "scripts": {
+        "refactor": "rector --debug",
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse --ansi",
+        "test:type-coverage": "pest --type-coverage --min=100",
+        "test:unit": "pest --colors=always"
+    }
+}
